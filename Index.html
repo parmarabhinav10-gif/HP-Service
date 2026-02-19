@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pahadi Service Connect - HP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 font-sans">
+
+    <header class="bg-blue-900 text-white p-6 rounded-b-3xl shadow-lg sticky top-0 z-50">
+        <h1 class="text-2xl font-bold tracking-tight">Pahadi Service Connect</h1>
+        <p class="text-blue-200 text-sm">Verified Experts in Himachal Pradesh</p>
+    </header>
+
+    <main class="p-4 space-y-6">
+        
+        <section>
+            <h2 class="text-gray-700 font-bold mb-3">What do you need help with?</h2>
+            <div class="grid grid-cols-1 gap-4">
+                
+                <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100 flex justify-between items-center" onclick="book('Water Filter')">
+                    <div>
+                        <h3 class="font-bold text-lg">Water Filter Service</h3>
+                        <p class="text-gray-400 text-sm italic">RO Service & Repair</p>
+                    </div>
+                    <button class="bg-green-500 text-white px-4 py-2 rounded-lg font-bold">Book</button>
+                </div>
+
+                <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100 flex justify-between items-center" onclick="book('Carpenter')">
+                    <div>
+                        <h3 class="font-bold text-lg">Carpenter</h3>
+                        <p class="text-gray-400 text-sm italic">Woodwork & Repairs</p>
+                    </div>
+                    <button class="bg-green-500 text-white px-4 py-2 rounded-lg font-bold">Book</button>
+                </div>
+
+                <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100 flex justify-between items-center" onclick="book('Mason')">
+                    <div>
+                        <h3 class="font-bold text-lg">Mason (Mistri)</h3>
+                        <p class="text-gray-400 text-sm italic">Stone & Construction</p>
+                    </div>
+                    <button class="bg-green-500 text-white px-4 py-2 rounded-lg font-bold">Book</button>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="bg-blue-50 p-6 rounded-3xl border-2 border-dashed border-blue-200">
+            <h3 class="font-bold text-blue-900 text-lg mb-1 text-center">Are you a Worker?</h3>
+            <p class="text-blue-700 text-xs text-center mb-4 italic">Join our team and get daily work in HP</p>
+            
+            <input type="text" id="wName" placeholder="Your Name" class="w-full mb-2 p-3 rounded-lg border">
+            <input type="text" id="wLoc" placeholder="Your Village/Town" class="w-full mb-3 p-3 rounded-lg border">
+            <button onclick="register()" class="w-full bg-blue-900 text-white py-3 rounded-lg font-bold">Register Now</button>
+        </section>
+
+    </main>
+
+    <footer class="text-center py-10 text-gray-400 text-xs">
+        Serving Shimla, Mandi, Kangra & more. <br> Support: 7018164340
+    </footer>
+
+    <script>
+        const MY_NUM = "917018164340";
+
+        function book(service) {
+            let msg = `Hi! I need a *${service}* at my home in Himachal. Please send a verified worker.`;
+            window.open(`https://wa.me/${MY_NUM}?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        function register() {
+            let name = document.getElementById('wName').value;
+            let loc = document.getElementById('wLoc').value;
+            if(!name || !loc) return alert("Fill name and location");
+            
+            let msg = `WORKER REGISTRATION:%0AName: ${name}%0ALocation: ${loc}%0AI want to join Pahadi Service Connect.`;
+            window.open(`https://wa.me/${MY_NUM}?text=${msg}`, '_blank');
+        }
+    </script>
+</body>
+</html>
